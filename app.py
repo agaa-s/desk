@@ -16,6 +16,7 @@ if __name__ == '__main__':
 
 # 実行方法
 # $ FLASK_APP=app.py python3 -m flask run
+# $ FLASK_APP=~/git/desk/app.py ./flask run     /home/kunihiko/.local/bin
 #    or
 # 上記コメントをはずして
 # $ python3 app.py
