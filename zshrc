@@ -1,3 +1,8 @@
+## Use emacs keybindings even if our EDITOR is set to vi
+#bindkey -e
+bindkey -v
+
+## プロンプト
 # Set up the prompt
 #autoload -Uz promptinit
 #promptinit
@@ -12,8 +17,27 @@
 PROMPT='%K{blue}%n@%m%k:%B%F{cyan}%.%f%b %# '
 RPROMPT='%B%F{green}%~%f%b'
 
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+###  コマンド履歴
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+
+# ignore duplication command history list
+#setopt hist_ignoreall_dups
+# share command history data
+setopt share_history
+
+### コマンド履歴検索
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
+### Use modern completion system
+autoload -Uz compinit
+compinit
 
 # add kunihiko 2019-01-14 http://ama-ch.hatenablog.com/entry/20090109/1231526834
 # ディレクトリ名を入力するだけで移動
@@ -26,17 +50,6 @@ setopt pushd_ignore_dups
 setopt correct
 # 補完候補を詰めて表示する
 setopt list_packed
-
-setopt histignorealldups sharehistory
-
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
-
-# Use modern completion system
-autoload -Uz compinit
-compinit
 
 # add kunihiko 2019-01-13
 alias ls='ls --color'
