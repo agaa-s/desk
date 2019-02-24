@@ -1,0 +1,89 @@
+﻿
+CentOS 6 / CentOS 7 で最新のtmuxを、yumで入れたtmuxと共存させたままインストールする
+https://www.terabo.net/blog/install-latest-tmux-on-centos-6-and-7/
+
+tmuxの初期設定とよく使うコマンド。インストールから設定まで。
+https://qiita.com/takish/items/386ae78efc7ecf9c86d0
+
+tmuxの使い方
+https://qiita.com/vintersnow/items/be4b29652ff665c45198
+
+tpmでplugin管理して快適ターミナル生活
+https://qiita.com/izumin5210/items/5b7f4c01fb6fe6064a05
+
+tmux-plugins/tpm
+https://github.com/tmux-plugins/tpm
+
+# 初回シェル時のみ tmux実行
+if [ $SHLVL = 1 ]; then
+  tmux
+fi
+
+---
+
+yum (rpm) と apt-get の対応表
+http://yoshifumi.hateblo.jp/entry/20080506/p1
+
+Linux パッケージ管理コマンド比較（yum / dnf / apt 等）
+http://sig9.hatenablog.com/entry/2015/06/21/081407
+
+---
+
+viの設定ファイル
+http://capm-network.com/?tag=vi%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB
+
+vim
+http://www.ksknet.net/vim/
+
+
+●現バージョンのアンインストール
+インストールの確認
+yum list installed | grep tmux
+
+アンインストール
+yum remove tmux tmux-*
+ or
+yum erase tmux tmux-*
+
+グループ
+yum -v grouplist
+yum -v groups
+yum groupremove mail-server
+
+
+●tmux をソースでインストール
+yum install ncurses-devel libevent libevent-devel libevent-headers
+
+wget https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz
+tar xzf tmux-2.3.tar.gz
+cd tmux-2.3
+./configure --prefix=/usr/local/tmux-2.3
+make
+make install
+
+バージョンを確認
+/usr/local/tmux-2.3/bin/tmux -V
+
+/usr/local/tmux-2.3/bin にパスを通す
+
+●CentOS 6 系の場合
+yum install ncurses-devel
+wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
+tar xzf libevent-2.1.8-stable.tar.gz
+cd libevent-2.1.8-stable
+./configure --prefix=/usr/local/libevent-2.1.8-stable
+make
+make install
+
+wget https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz
+tar xzf tmux-2.3.tar.gz
+cd tmux-2.3
+./configure CPPFLAGS="-I/usr/local/libevent-2.1.8-stable/include" LDFLAGS="-L/usr/local/libevent-2.1.8-stable/lib" --prefix=/usr/local/tmux-2.3
+make
+make install
+
+.bash_profile かどこかに
+export LD_LIBRARY_PATH="/usr/local/libevent-2.1.8-stable/lib:$LD_LIBRARY_PATH"
+を書いてから、動作を確認する。 
+
+/usr/local/tmux-2.3/bin/tmux -V
