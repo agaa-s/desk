@@ -3,7 +3,7 @@
 set $flg=.flg
 set $csv=.bat
 
-for %%f in (%*) do (  
+for /f "tokens=1" %%f in (.\import.cfg) do (  
   if exist %%f.flg (
     call .\logmsg.bat logfile %%f%$flg%が見つかりました
     notepad %%f%$csv%
