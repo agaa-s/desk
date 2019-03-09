@@ -14,6 +14,7 @@ https://qiita.com/izumin5210/items/5b7f4c01fb6fe6064a05
 tmux-plugins/tpm
 https://github.com/tmux-plugins/tpm
 
+2019/02/24
 # 初回シェル時のみ tmux実行
 if [ $SHLVL = 1 ]; then
   tmux
