@@ -1,0 +1,54 @@
+﻿wslconfig /t openSUSE-Leap-15
+wslconfig /t Ubuntu-18.04
+  /t で本当に終了させる
+  /l でインストール済み ディストロ一覧
+
+export DISPLAY=localhost:2.0
+export DISPLAY=localhost:0.0
+export LIBGL_ALWAYS_INDIRECT=1
+xfce4-session
+startxfce4
+
+
+
+[ubuntu gnome3]
+sudo service dbus restart
+DISPLAY=0:0
+XDG_SESSION_TYPE=x11
+起動→ gnome-session
+
+
+[ubuntu xfce4]
+export DISPLAY=:0.0
+export LIBGL_ALWAYS_INDIRECT=1
+起動→ startxfce4
+
+'
+export DISPLAY=localhost:0.0;
+export XMODIFIERS="@im=uim";
+export GTK_IM_MODULE=uim;
+export QT_IM_MODULE=uim;
+起動→ xfce4-session
+'
+-- 2019/04/29 以下実施 Ubuntu側
+sudo –s
+apt update && apt upgrade
+apt install xfce4-session
+
+sudo apt install -y xubuntu-desktop <- 再インストール した
+※bluemanでエラー
+--
+
+[openSUSE xfce4]
+-- 2019/04/29 以下実施 openSUSE側
+sudo zypper update
+sudo zypper install xfce4-session
+その他 4つほどエラーメッセージにしたがった
+
+sudo zypper -n in patterns-openSUSE-xfce <- 再インストール した
+sudo zypper install xfce4-terminal       <- ターミナルだけ別途追加インストール
+
+$ sudo mkdir -p /run/dbus
+$ sudo dbus-daemon --system
+--
+/home/ut19271/.cache/sessions/xfce4-session-KFuruhashi-PC:0, Does it exist? Permissions issue?

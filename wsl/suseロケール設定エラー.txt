@@ -1,0 +1,3 @@
+/etc/sysconfig/language
+
+/usr/bin/localectl set-locale LANG=ja_JP.UTF-8
