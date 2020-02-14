@@ -1,4 +1,4 @@
-﻿wslconfig /t openSUSE-Leap-15
+wslconfig /t openSUSE-Leap-15
 wslconfig /t Ubuntu-18.04
   /t で本当に終了させる
   /l でインストール済み ディストロ一覧

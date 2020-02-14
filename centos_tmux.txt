@@ -1,4 +1,4 @@
-﻿
+
 CentOS 6 / CentOS 7 で最新のtmuxを、yumで入れたtmuxと共存させたままインストールする
 https://www.terabo.net/blog/install-latest-tmux-on-centos-6-and-7/
 
