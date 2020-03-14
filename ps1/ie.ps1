@@ -5,6 +5,25 @@ function prompt() {
 }
 #>
 
+<# 参考
+●VBAでインターネット上のファイルをダウンロードする方
+https://www.ka-net.org/blog/?p=4855#HttpRequest
+# XMLHTTPRequest
+Set req = CreateObject("Msxml2.XMLHTTP") 
+# WinHttpRequest
+Set req = CreateObject("WinHttp.WinHttpRequest.5.1")
+# HttpClient .NET CoreではHttpClientFactory
+
+●PowerShell Scripting Weblog
+http://winscript.jp/powershell/306 279 304 305
+
+●tsl12
+https://hi-matic.org/diary/?201901
+if (-not ([Net.ServicePointManager]::SecurityProtocol -band [Net.SecurityProtocolType]::Tls12)) {
+    [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+}
+
+#>
 function ieTerminate($ie) {
     $ie.Quit()
     $ie = $null
