@@ -11,12 +11,14 @@ def hello():
 if __name__ == '__main__':
 	app.debug = True # デバッグモード有効化
 	app.run()
-#	app.run(host='0.0.0.0') # どこからでもアクセス可能に
+##	app.run(host='0.0.0.0') # どこからでもアクセス可能に
 
 
 # 実行方法
 # $ FLASK_APP=app.py python3 -m flask run
-# $ FLASK_APP=~/git/desk/app.py ./flask run     /home/kunihiko/.local/bin
 #    or
-# 上記コメントをはずして
+# $ FLASK_APP=~/agaa-s/desk/app.py  /home/kunihiko/.local/bin/flask run
+### $ FLASK_APP=~/git/desk/app.py ./flask run     /home/kunihiko/.local/bin
+#    or
+# 上記 11〜13行目のコメントをはずして
 # $ python3 app.py
