@@ -13,4 +13,15 @@ cur.execute('select * from sample order by id')
 res = cur.fetchall()
 con.close()
 
+"""
+fetchall() の返り値は
+tuple () の list []
+"""
+print(type(res))
 print(res)
+for r in res:
+    print(type(r))
+    print(r)
+    for f in r:
+        print(type(f))
+        print(f)
