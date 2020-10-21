@@ -1,8 +1,16 @@
 import os
 import sqlite3
-conn = sqlite3.connect('/home/kunihiko/win/Desk_Original/python/sqlite3/sample_db.sqlite')
-cur = conn.cursor()
+
+DB_PATH = 'sample_db.sqlite'
+
+### __file__ : 実行している .py のパス
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+print(os.getcwd())
+
+con = sqlite3.connect(DB_PATH)
+cur = con.cursor()
 cur.execute('select * from sample order by id')
-res = cur.fetchone()
+res = cur.fetchall()
+con.close()
+
 print(res)
-conn.close()
