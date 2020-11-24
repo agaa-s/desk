@@ -17,7 +17,7 @@ app = Flask(__name__)
 '''
 @app.route('/') # ①
 def hello():
-	return 'Hello, World!'
+	return 'Hello, World!!!'
 
 """
 ①は、hello()がcallされたときに呼び出されるのではなく
@@ -31,12 +31,12 @@ agaa-s/desk/python-venv/flask/lib/python3.6/site-packages/flask/app.py：1288行
 """
 
 # 実行方法 1)
-# 下記のコメントをはずして
+# 下記のコメント(##)をはずして
 # $ python3 app.py
-if __name__ == '__main__':
-	app.debug = True # デバッグモード有効化 -> reloadが有効になるなど
-	app.run()
-##	app.run(host='0.0.0.0') # どこからでもアクセス可能に
+## if __name__ == '__main__':
+##	app.debug = True # デバッグモード有効化 -> reloadが有効になるなど
+##	app.run()
+###	app.run(host='0.0.0.0') # どこからでもアクセス可能に
 
 
 # 実行方法 2)
