@@ -30,3 +30,6 @@ https://github.com/jacogr/atom-git-control/issues/259
 ・GitHub Tab を出そうとすると No pull request could be found ... になり
 　先に進めない・・・確か前回もそうだったような
 ・ただしatomからGitHubにpullはできることを確認した
+
+2020-12-25
+・githubの認証をSSHに
