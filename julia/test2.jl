@@ -1,3 +1,4 @@
+ENV["GKSwstype"]=100  # ENV["GKSwstype"]="nul"
 using Plots
 
 gr();
@@ -11,4 +12,3 @@ pyplot();
 
 plot(sin, -pi:0.01:pi);
 =#
-
