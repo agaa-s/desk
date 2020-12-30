@@ -17,7 +17,8 @@ from PySide2.QtCore import Slot, Qt
 
 class MyWidget(QWidget):
     def __init__(self):
-        QWidget.__init__(self)
+        # QWidget.__init__(self)
+        super().__init__()
 
         self.hello = ["Hallo Welt", "你好，世界", "Hei maailma",
             "Hola Mundo", "Привет мир"]

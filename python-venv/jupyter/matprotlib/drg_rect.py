@@ -3,7 +3,8 @@
 
 """
 こいつは動きません。
-本当はこいつを動かしてkら、Qtに組み込みたかったが、エラーをつぶせないので一時保留（2020-12-30）
+本当はこいつを動かしてから、Qtに組み込みたかったが、エラーをつぶせないので一時保留（2020-12-30）
+→ printの書き方が Python2 でした。（2020-12-30）
 [参考元] PythonでmatplotlibとPySideを連携させる
 <https://qiita.com/mountcedar/items/ccf671a497563b0cd671>
 """
@@ -17,7 +18,7 @@ class DraggableRectangle:
         self.press = None
 
     def connect(self):
-        'connect to all the events we need'
+        # 'connect to all the events we need'
         self.cidpress = self.rect.figure.canvas.mpl_connect(
             'button_press_event', self.on_press)
         self.cidrelease = self.rect.figure.canvas.mpl_connect(
@@ -35,7 +36,7 @@ class DraggableRectangle:
         contains, attrd = self.rect.contains(event)
         if not contains:
             return
-        print 'event contains', self.rect.xy
+        print('event contains', self.rect.xy)
         x0, y0 = self.rect.xy
         self.press = x0, y0, event.xdata, event.ydata
 
