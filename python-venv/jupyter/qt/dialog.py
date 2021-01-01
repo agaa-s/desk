@@ -188,9 +188,13 @@ def main3():
         app = QApplication(sys.argv)
 
     fig = plt.figure()
-    canvas = FigureCanvas(fig)
     ax = fig.add_subplot(111)
     rects = ax.bar(range(10), 20 * np.random.rand(10))
+
+    canvas = FigureCanvas(fig)
+    # canvas.setFocusPolicy(Qt.StrongFocus)
+    # canvas.setFocus()
+
     drs = []
     for rect in rects:
         dr = DraggableRectangle(rect)
@@ -200,9 +204,6 @@ def main3():
     w = MyWidget(None, canvas)
     w.resize(800, 600)
     w.show()
-
-    canvas.setFocusPolicy(Qt.StrongFocus)
-    canvas.setFocus()
 
     # styleシートを適用
     setStyle(app)

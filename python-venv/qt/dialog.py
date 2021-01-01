@@ -114,4 +114,9 @@ def main2():
 
 
 if __name__ == '__main__':
-    main2()
+    if len(sys.argv) < 2:
+        main()
+    elif sys.argv[1] == "1":
+        main1()
+    else:
+        main2()

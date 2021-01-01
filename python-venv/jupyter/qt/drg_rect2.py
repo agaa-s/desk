@@ -87,25 +87,34 @@ if __name__ == '__main__':
     if app is None:
         app = QApplication(sys.argv)
 
+    # グラフを作成
     fig = plt.figure()
-    canvas = FigureCanvas(fig)
     ax = fig.add_subplot(111)
     rects = ax.bar(range(10), 20 * np.random.rand(10))
-    drs = []
-    for rect in rects:
-        dr = DraggableRectangle(rect)
-        dr.connect()
-        drs.append(dr)
 
-    #plt.show()
+    canvas = FigureCanvas(fig)  # canvasはQtのwidgit
     canvas.setFocusPolicy(Qt.StrongFocus)
     canvas.setFocus()
 
+    # # グラフの各バーをドラッガブルにする
+    # #   canvas = FigureCanvas(fig) よりあとで実行すること
+    # drs = []
+    # for rect in rects:
+    #     dr = DraggableRectangle(rect)
+    #     dr.connect()  # 本来なら終了時に disconnectするのでしょうね
+    #     drs.append(dr) # drの上書き防止
 
-    button = QPushButton("Click me!")
-    text = QLabel("Hello World")
+###    plt.show()
+
+
+    # ラベル
+    text = QLabel("drg_rect2.py")
     text.setAlignment(Qt.AlignCenter)
 
+    # ボタン
+    button = QPushButton("Click me!!!")
+
+    # レイアウトを構成
     layout = QVBoxLayout()
     layout.addWidget(text)
     layout.addWidget(button)
