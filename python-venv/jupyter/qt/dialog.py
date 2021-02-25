@@ -6,8 +6,8 @@ from matplotlib.backends.backend_qt5agg \
     import FigureCanvasQTAgg as FigureCanvas
 
 
-from PySide2.QtWidgets import (QApplication, QDialog
-                             , QVBoxLayout, QHBoxLayout, QLabel, QWidget
+from PySide2.QtWidgets import (QApplication, QWidget, QDialog
+                             , QVBoxLayout, QHBoxLayout, QLabel
                              , QLineEdit, QPushButton
                              , QListWidget, QListWidgetItem)
 from PySide2.QtCore import Slot, Qt
@@ -98,9 +98,13 @@ class MyWidget(QWidget):
         super(MyWidget, self).__init__(parent)
 
         ## 左
+        caps = ["みーぱん","かっきー","りさねーさん","ポンポン"
+               ,"大園 玲","ゆっかー","おすし","かとし"
+               ,"えんさく","掛橋 沙耶香","早川 聖来"]
         menu_widget = QListWidget()
-        for i in range(10):
-            item = QListWidgetItem("Item {}".format(i))
+        for i in range(11):
+            #item = QListWidgetItem("Item {}".format(i))
+            item = QListWidgetItem(caps[i])
             item.setTextAlignment(Qt.AlignCenter)
             menu_widget.addItem(item)
 
@@ -114,10 +118,10 @@ class MyWidget(QWidget):
         button = QPushButton("Something")
 
         content_layout = QVBoxLayout()
-        if canvas == None:
-            content_layout.addWidget(text_widget)
-        else :
+        if canvas != None:
             content_layout.addWidget(canvas)
+        else:
+            content_layout.addWidget(text_widget)
 
         content_layout.addWidget(button)
 
@@ -219,5 +223,5 @@ if __name__ == '__main__':
         main1()
     elif sys.argv[1] == "2":
         main2()
-    else :
+    else:
         main3()

@@ -1,4 +1,4 @@
-ENV["GKSwstype"]=100  # ENV["GKSwstype"]="nul"
+#ENV["GKSwstype"]=100  # ENV["GKSwstype"]="nul"
 using Plots
 
 gr();

@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# QMainWindow を使ってます。
+
 import matplotlib
 # matplotlib.rcParams['backend.qt5'] = 'PySide2'
 # matplotlib.use('Qt5Agg')
