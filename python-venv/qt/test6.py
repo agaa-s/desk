@@ -9,6 +9,10 @@ Ubuntu 18.04 glibc（GNU Cライブラリ）は、2.27。
 
 ※下記コードは、PySide6 → Pyside2 で実行で可能となる。
 
+2021-03-06現在 Ubuntu 20.04 にupgrade に伴う、Python 3.8.5へのアップグレード後
+  ImportError: libOpenGL.so.0: cannot open shared object file: No such file or directory
+  ※面倒くさいので、ほったらかし！！！
+
 ------------------------------------------------------------
 atom の python-debugger のファイルの切り替え方法。
 Enter debugger commands here に 『e=test6.py』 を入力する。

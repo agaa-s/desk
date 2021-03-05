@@ -17,7 +17,7 @@ app = Flask(__name__)
 '''
 @app.route('/') # ①
 def hello():
-	return 'Hello, World!!!'
+	return 'Hello, python3.8!!!'
 
 """
 ①は、hello()がcallされたときに呼び出されるのではなく
